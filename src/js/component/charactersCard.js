@@ -4,10 +4,11 @@ import { Context } from "../store/appContext";
 
 export function CharactersCard() {
 	const { store, actions } = useContext(Context);
-	//console.log("Fav", store.favorites);  mx-3 mb-4
+	//console.log("Fav", store.favorites);
 	return (
 		<React.Fragment>
 			{store.characters.map((person, index) => {
+				//console.log("person", person);
 				return (
 					<div className="card custom-card test my-4" key={index}>
 						<img
@@ -24,7 +25,9 @@ export function CharactersCard() {
 							</div>
 							<div className="d-flex justify-content-between">
 								<Link to={`/people/${index}`}>
-									<button className="btn btn-outline-primary">More Details!</button>
+									<button className="btn btn-outline-primary" id={index}>
+										More Details!
+									</button>
 								</Link>
 								<div
 									className="favoritesContainer"

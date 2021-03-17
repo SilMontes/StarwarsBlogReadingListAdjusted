@@ -8,7 +8,7 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
-				<a className="navbar-brand mx-5" href="#">
+				<div className="navbar-brand mx-5" href="#">
 					<img
 						src="https://i.pinimg.com/originals/c8/1b/f1/c81bf1592fcd3734f0a38ae75f07ade3.jpg"
 						width="50"
@@ -16,7 +16,7 @@ export const Navbar = () => {
 						className="d-inline-block align-top"
 						alt=""
 					/>
-				</a>
+				</div>
 			</Link>
 			{/*se mostrará la cantidad de objetos que hay en el arreglo favorites declarado en store */}
 			{/**Si favorites está vacío, se mostrará el mensaje Nothing here!; de lo contrario, se hará map al arreglo y se crearán NavDropdown.items por cada uno de los elementos en el favorites */}

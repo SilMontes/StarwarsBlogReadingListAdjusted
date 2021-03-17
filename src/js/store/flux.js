@@ -20,10 +20,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 								charactersInfo.push(personData.result.properties);
 							});
 					});
-					setStore({ ...getStore(), characters: charactersInfo });
+					setStore({ ...store, characters: charactersInfo });
 					//console.log("Characters Info", charactersInfo);
 					console.log("Characters object", store.characters);
-				} else console.log("Error requestResponse: ", requestResponse.status);
+				} else console.log("Error request: ", requestResponse.status);
 			},
 			getPlanets: async () => {
 				const store = getStore();
@@ -39,10 +39,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 								planetsInfo.push(planetData.result.properties);
 							});
 					});
-					setStore({ ...getStore(), planets: planetsInfo });
+					setStore({ ...store, planets: planetsInfo });
 					//console.log("Planets Info", planetsInfo);
 					console.log("Planets object", store.planets);
-				} else console.log("Error requestResponsePlanets", requestResp.status);
+				} else console.log("Error requestPlanets", requestResp.status);
 			},
 			addToFavorites: name => {
 				const store = getStore();

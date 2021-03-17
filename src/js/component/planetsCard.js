@@ -24,13 +24,13 @@ export function PlanetsCard() {
 								<Link to={`/planet/${index}`}>
 									<button className="btn btn-outline-primary">More Details!</button>
 								</Link>
-								<div className="favoritesContainer">
-									<i
-										className="fas fa-heart"
-										onClick={() => {
-											actions.addToFavorites(planet.name);
-										}}
-									/>
+								<div
+									className="favoritesContainer"
+									onClick={() => {
+										actions.addToFavorites(planet.name);
+										console.log("fav", store.favorites);
+									}}>
+									<i className="fas fa-heart" />
 								</div>
 							</div>
 						</div>
