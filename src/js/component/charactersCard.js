@@ -6,7 +6,7 @@ export function CharactersCard() {
 	const { store, actions } = useContext(Context);
 	//console.log("Fav", store.favorites);
 	return (
-		<React.Fragment>
+		<div className="d-flex flex-nowrap overflow-auto">
 			{store.characters.map((person, index) => {
 				//console.log("person", person);
 				return (
@@ -14,7 +14,6 @@ export function CharactersCard() {
 						<img
 							className="card-img-top"
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh3rDeGqhfMHdVCkogR1csg3lVCVXv5PQ09Q&usqp=CAU"
-							style={{ width: "400", height: "200" }}
 						/>
 						<div className="card-body">
 							<h5 className="card-title text-left">{person.name}</h5>
@@ -41,6 +40,6 @@ export function CharactersCard() {
 					</div>
 				);
 			})}
-		</React.Fragment>
+		</div>
 	);
 }

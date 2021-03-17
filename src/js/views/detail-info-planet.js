@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 
-export function DetailInfoCharacters() {
+export function DetailInfoPlanet() {
 	const { store, action } = useContext(Context);
 	const params = useParams();
 
@@ -19,7 +19,7 @@ export function DetailInfoCharacters() {
 					</div>
 					<div className="col-md-6 col-lg-5 text-center row mb-4">
 						<div className="align-self-center">
-							<h5>{store.characters[params.characterid].name}</h5>
+							<h5>{store.planets[params.planetid].name}</h5>
 							<p>
 								Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,
 								graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
@@ -33,27 +33,23 @@ export function DetailInfoCharacters() {
 				<div className="row text-danger justify-content-md-center text-center mt-4">
 					<div className="col-md-2 col-lg-1 mx-2">
 						<p>Name</p>
-						<p>{store.characters[params.characterid].name}</p>
+						<p>{store.planets[params.planetid].name}</p>
 					</div>
 					<div className="col-md-2 col-lg-1 mx-2">
-						<p>Birth Year</p>
-						<p>{store.characters[params.characterid].birth_year}r</p>
+						<p>Climat</p>
+						<p>{store.planets[params.planetid].climate}r</p>
 					</div>
 					<div className="col-md-2 col-lg-1 mx-2">
-						<p>Gender</p>
-						<p>{store.characters[params.characterid].gender}</p>
+						<p>Population</p>
+						<p>{store.planets[params.planetid].population}</p>
 					</div>
 					<div className="col-md-2 col-lg-1 mx-2">
-						<p>Height</p>
-						<p>{store.characters[params.characterid].height}</p>
+						<p>Orbital Period</p>
+						<p>{store.planets[params.planetid].orbital_period}</p>
 					</div>
 					<div className="col-md-2 col-lg-1 mx-2">
-						<p>Skin Color</p>
-						<p>{store.characters[params.characterid].skin_color}</p>
-					</div>
-					<div className="col-md-2 col-lg-1 mx-2">
-						<p>Eye Color</p>
-						<p>{store.characters[params.characterid].eye_color}</p>
+						<p>Diameter</p>
+						<p>{store.planets[params.planetid].diameter}</p>
 					</div>
 				</div>
 			</div>

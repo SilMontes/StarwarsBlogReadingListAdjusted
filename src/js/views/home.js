@@ -8,14 +8,10 @@ export const Home = () => (
 		<div className="row">
 			<h2>Characters</h2>
 		</div>
-		<div className="d-flex flex-nowrap overflow-auto">
-			<CharactersCard />
-		</div>
+		<CharactersCard />
 		<div className="row mt-5">
 			<h2>Planets</h2>
 		</div>
-		<div className="d-flex flex-nowrap overflow-auto">
-			<PlanetsCard />
-		</div>
+		<PlanetsCard />
 	</div>
 );

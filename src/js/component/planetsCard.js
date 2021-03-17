@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 
 export function PlanetsCard() {
 	const { store, actions } = useContext(Context);
+	//console.log("Fav", store.favorites);
 	return (
-		<React.Fragment>
+		<div className="d-flex flex-nowrap overflow-auto">
 			{store.planets.map((planet, index) => {
 				return (
 					<div className="card custom-card test my-4" key={index}>
 						<img
 							className="card-img-top"
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh3rDeGqhfMHdVCkogR1csg3lVCVXv5PQ09Q&usqp=CAU"
-							style={{ width: "400", height: "200" }}
 						/>
 						<div className="card-body">
 							<h5 className="card-title text-left">{planet.name}</h5>
@@ -27,8 +27,7 @@ export function PlanetsCard() {
 								<div
 									className="favoritesContainer"
 									onClick={() => {
-										actions.addToFavorites(planet.name);
-										console.log("fav", store.favorites);
+										actions.addToFavoritesPlanets(planet.name);
 									}}>
 									<i className="fas fa-heart" />
 								</div>
@@ -37,6 +36,6 @@ export function PlanetsCard() {
 					</div>
 				);
 			})}
-		</React.Fragment>
+		</div>
 	);
 }

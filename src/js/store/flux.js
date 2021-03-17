@@ -56,6 +56,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				});
 			},
+			addToFavoritesPlanets: name => {
+				const store = getStore();
+				store.planets.map(item => {
+					if (item.name == name) {
+						setStore({ ...store, favorites: [...store.favorites, { name }] });
+					}
+				});
+			},
 			deleteFavorite: name => {
 				const store = getStore();
 				const updateFavorites = store.favorites.filter(item => {
