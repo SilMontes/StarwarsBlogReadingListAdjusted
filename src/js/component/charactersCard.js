@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export function CharactersCard() {
+export function CharactersCard(props) {
 	const { store, actions } = useContext(Context);
 	//console.log("Fav", store.favorites);
 	return (
@@ -33,7 +34,7 @@ export function CharactersCard() {
 									onClick={() => {
 										actions.addToFavorites(person.name);
 									}}>
-									<i className="fas fa-heart" />
+									{props.icon(person.name)}
 								</div>
 							</div>
 						</div>
@@ -43,3 +44,6 @@ export function CharactersCard() {
 		</div>
 	);
 }
+CharactersCard.propTypes = {
+	icon: PropTypes.func
+};

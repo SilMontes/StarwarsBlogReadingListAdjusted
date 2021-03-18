@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export function PlanetsCard() {
+export function PlanetsCard(props) {
 	const { store, actions } = useContext(Context);
 	//console.log("Fav", store.favorites);
 	return (
@@ -29,7 +30,7 @@ export function PlanetsCard() {
 									onClick={() => {
 										actions.addToFavoritesPlanets(planet.name);
 									}}>
-									<i className="fas fa-heart" />
+									{props.icon(planet.name)}
 								</div>
 							</div>
 						</div>
@@ -39,3 +40,6 @@ export function PlanetsCard() {
 		</div>
 	);
 }
+PlanetsCard.propTypes = {
+	icon: PropTypes.func
+};

@@ -46,28 +46,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addToFavorites: name => {
 				const store = getStore();
-				store.characters.map(item => {
-					if (item.name == name) {
-						//console.log(item);
-						//1. Accedo a todo lo que hay en store
-						//2.Accedo al objeto favorito
-						//3.Accedo a todo lo que hay favoritos y le agrego name
-						setStore({ ...store, favorites: [...store.favorites, { name }] });
-					}
-				});
+
+				if (store.favorites.includes(name)) {
+					//console.log("yes", store.favorites);
+				} else {
+					//1. Accedo a todo lo que hay en store
+					//2.Accedo al array favorito
+					//3.Accedo a todo lo que hay favoritos y le agrego name
+					setStore({ ...store, favorites: [...store.favorites, name] });
+				}
+				//console.log(store.favorites);
 			},
 			addToFavoritesPlanets: name => {
 				const store = getStore();
+				const avoidingrepetition = store.favorites.includes(name);
 				store.planets.map(item => {
-					if (item.name == name) {
-						setStore({ ...store, favorites: [...store.favorites, { name }] });
+					if (item.name == name && avoidingrepetition === false) {
+						setStore({ ...store, favorites: [...store.favorites, name] });
 					}
 				});
 			},
 			deleteFavorite: name => {
 				const store = getStore();
 				const updateFavorites = store.favorites.filter(item => {
-					return item.name != name;
+					return item != name;
 				});
 				setStore({ ...store, favorites: updateFavorites });
 				//console.log(updatefavorites);
