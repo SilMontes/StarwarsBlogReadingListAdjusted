@@ -18,9 +18,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 							.then(responsePerson => responsePerson.json())
 							.then(personData => {
 								charactersInfo.push(personData.result.properties);
-							});
+								//setStore({ characters: charactersInfo });
+								setStore({ ...store, characters: charactersInfo });
+							})
+							.catch(error => console.log("Error: ", error));
 					});
-					setStore({ ...store, characters: charactersInfo });
+					//
 					//console.log("Characters Info", charactersInfo);
 					console.log("Characters object", store.characters);
 				} else console.log("Error request: ", requestResponse.status);
@@ -37,9 +40,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 							.then(responsePlanet => responsePlanet.json())
 							.then(planetData => {
 								planetsInfo.push(planetData.result.properties);
+								setStore({ ...store, planets: planetsInfo });
 							});
 					});
-					setStore({ ...store, planets: planetsInfo });
+
 					//console.log("Planets Info", planetsInfo);
 					console.log("Planets object", store.planets);
 				} else console.log("Error requestPlanets", requestResp.status);
